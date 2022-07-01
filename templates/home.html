@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>HTML 5 Microphone Visualizer</title>
+    <link rel="stylesheet" href="static/styles/index.css">
+    <link rel="stylesheet" href="static/styles/style.css">
+</head>
+
+
+<body>
+    <h1>Voice Activity Detection </h1>
+    <br><br><br>
+    <h3>Record your voice</h3>
+
+    <div style="max-width: 28em;">
+		<select id="encodingTypeSelect" hidden>
+		  <option value="wav">Waveform Audio (.wav)</option>
+		</select>
+		<div id="controls">
+			<button id="recordButton" class="green-button">Record</button>
+			<button id="stopButton" class="red-button" disabled>Stop</button>
+		</div>
+
+		<div id="formats" hidden></div>
+		<pre id="log" hidden></pre>
+        <br>
+        <h3>Playback your recording </h3> 
+		
+		<ol id="recordingsList"></ol>
+        <svg preserveAspectRatio="none" id="visualizer" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <defs>
+                <mask id="mask">
+                    <g id="maskGroup"></g>
+                </mask>
+                <linearGradient id="gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style="stop-color:#db6247;stop-opacity:1" />
+                    <stop offset="40%" style="stop-color:#f6e5d1;stop-opacity:1" />
+                    <stop offset="60%" style="stop-color:#5c79c7;stop-opacity:1" />
+                    <stop offset="85%" style="stop-color:#b758c0;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#222;stop-opacity:1" />
+                </linearGradient>
+            </defs>
+            <rect x="0" y="0" width="100%" height="100%" fill="url(#gradient)" mask="url(#mask)"></rect>
+        </svg>
+
+	</div>
+
+    <script  src="static/js/app.js"></script>
+    <script  src="static/js/index.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ url_for('static', filename='js/WebAudioRecorder.min.js') }}" ></script>
+
+</body>
+
+</html>
