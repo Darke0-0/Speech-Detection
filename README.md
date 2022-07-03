@@ -11,7 +11,8 @@ git clone https://github.com/Darke0-0/Speech-Detection.git
 ### Install dependencies
 
 ```
-run pip install requirements.txt 
+run 
+pip install requirements.txt 
 ```
 
 ### Start the application
